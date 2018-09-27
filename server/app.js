@@ -9,8 +9,8 @@ const createError = require('http-errors'),
       bodyParser= require('body-parser');
 
 const indexRouter = require('./routes/index'),
-      usersRouter = require('./routes/users');
-      // itemsRouter = require('./routes/items');
+      usersRouter = require('./routes/users'),
+      tweetsRouter = require('./routes/tweets');
 
 //Connecting to Mongoose
 const mongoose   = require('mongoose'),
@@ -25,6 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/tweets', tweetsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

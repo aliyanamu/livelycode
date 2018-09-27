@@ -1,11 +1,16 @@
 const express = require('express'),
-    router = express.Router()
-    // { list, register, login } = require('../controllers/users')
+    router = express.Router(),
+    { getSelf } = require('../middlewares/auth'),
+    { list, register, login } = require('../controllers/users')
 
 /* GET users listing. */
 router
-    // .post('/register', register)
+    .get('/', list)
 
-    // .post('/login', login)
+    .post('/register', register)
+
+    .post('/login', login)
+
+    .get('/self', getSelf)
 
 module.exports = router
